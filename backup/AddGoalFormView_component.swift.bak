@@ -1,0 +1,87 @@
+import SwiftUI
+
+struct AddGoalFormView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel: ThinkingViewModel
+    
+    @State private var title: String = ""
+    @State private var description: String = ""
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("目标信息")) {
+                    TextField("目标标题", text: $title)
+                    
+                    ZStack(alignment: .leading) {
+                        if description.isEmpty {
+                            Text("描述您的目标（越详细越好）...")
+                                .foregroundColor(.gray.opacity(0.8))
+                        }
+                        
+                        TextEditor(text: $description)
+                            .frame(minHeight: 100)
+                    }
+                }
+                
+                Section(header: Text("AI模型选择")) {
+                    Picker("使用的模型", selection: $viewModel.selectedModelType) {
+                        ForEach([AIModelType.zhipuChatGLM, .baiduWenxin, .aliTongyi, .xunfeiSpark], id: \.self) { model in
+                            Text(model.displayName).tag(model)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    
+                    HStack {
+                        Image(systemName: "lightbulb")
+                            .foregroundColor(.yellow)
+                        Text("目标描述越详细，AI生成的步骤就越精准")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
+                Section {
+                    Button(action: {
+                        createGoal()
+                    }) {
+                        HStack {
+                            Spacer()
+                            
+                            if viewModel.isAnalyzing {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle())
+                                    .padding(.trailing, 10)
+                            }
+                            
+                            Text(viewModel.isAnalyzing ? "正在分析..." : "创建并分析")
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                        }
+                    }
+                    .disabled(title.isEmpty || viewModel.isAnalyzing)
+                }
+            }
+            .navigationTitle("添加新目标")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("取消") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func createGoal() {
+        viewModel.createGoal(title: title, description: description)
+        
+        // 当分析完成后自动关闭表单
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if !viewModel.isAnalyzing {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
+    }
+} 

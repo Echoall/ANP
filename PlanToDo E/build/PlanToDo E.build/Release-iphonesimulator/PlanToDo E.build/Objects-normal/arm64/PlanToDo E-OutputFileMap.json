@@ -1,0 +1,205 @@
+{
+  "" : {
+    "const-values" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDo E-master.swiftconstvalues",
+    "dependencies" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDo E-master.d",
+    "diagnostics" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDo E-master.dia",
+    "emit-module-dependencies" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDo E-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDo E-master-emit-module.dia",
+    "swift-dependencies" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDo E-master.swiftdeps"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/AppDelegate.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Extensions/ViewExtensions.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ViewExtensions.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ViewExtensions.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ViewExtensions.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Models/Category.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Category.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Category.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Category.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Models/Goal.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Goal.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Goal.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Goal.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Models/Task.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Task.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Task.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/Task.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/PlanToDoApp.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDoApp.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDoApp.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/PlanToDoApp.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Services/AIAnalysisService.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AIAnalysisService.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AIAnalysisService.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AIAnalysisService.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Services/CloudService.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CloudService.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CloudService.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CloudService.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Services/CommonTypes.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CommonTypes.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CommonTypes.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CommonTypes.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Services/LocalStorageService.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/LocalStorageService.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/LocalStorageService.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/LocalStorageService.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Services/NotificationService.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/NotificationService.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/NotificationService.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/NotificationService.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Services/StorageStatusService.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/StorageStatusService.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/StorageStatusService.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/StorageStatusService.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/SimpleTestView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SimpleTestView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SimpleTestView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SimpleTestView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/TestView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TestView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TestView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TestView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Utilities/ColorExtensions.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ColorExtensions.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ColorExtensions.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ColorExtensions.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/ViewModels/CalendarViewModel.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CalendarViewModel.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CalendarViewModel.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CalendarViewModel.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/ViewModels/MainViewModel.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/MainViewModel.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/MainViewModel.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/MainViewModel.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/ViewModels/ThinkingViewModel.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ThinkingViewModel.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ThinkingViewModel.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ThinkingViewModel.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/AddGoalFormView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AddGoalFormView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AddGoalFormView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AddGoalFormView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/AnalyticsView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AnalyticsView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AnalyticsView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/AnalyticsView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/CalendarView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CalendarView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CalendarView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CalendarView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/CategoryEditView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CategoryEditView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CategoryEditView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CategoryEditView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/CategoryPicker.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CategoryPicker.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CategoryPicker.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/CategoryPicker.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/EmptyStateView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/EmptyStateView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/EmptyStateView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/EmptyStateView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/GoalCardView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GoalCardView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GoalCardView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GoalCardView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/GoalStepView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GoalStepView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GoalStepView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/GoalStepView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/KeyboardAwareView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/KeyboardAwareView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/KeyboardAwareView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/KeyboardAwareView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/LoadingIndicatorView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/LoadingIndicatorView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/LoadingIndicatorView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/LoadingIndicatorView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/SideMenuView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SideMenuView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SideMenuView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SideMenuView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/SortOptionsPicker.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SortOptionsPicker.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SortOptionsPicker.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SortOptionsPicker.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/Components/TaskItemView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TaskItemView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TaskItemView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TaskItemView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/DatePickerView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/DatePickerView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/DatePickerView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/DatePickerView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/MainView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/MainView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/MainView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/MainView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/ProfileView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ProfileView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/SettingsView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SettingsView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/SimpleCalendarView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SimpleCalendarView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SimpleCalendarView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/SimpleCalendarView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/TaskEditView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TaskEditView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TaskEditView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/TaskEditView.o"
+  },
+  "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/ThinkingView.swift" : {
+    "index-unit-output-path" : "/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ThinkingView.o",
+    "llvm-bc" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ThinkingView.bc",
+    "object" : "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/build/PlanToDo E.build/Release-iphonesimulator/PlanToDo E.build/Objects-normal/arm64/ThinkingView.o"
+  }
+}

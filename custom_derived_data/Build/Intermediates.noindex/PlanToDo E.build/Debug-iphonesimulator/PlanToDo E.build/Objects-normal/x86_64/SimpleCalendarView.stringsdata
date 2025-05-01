@@ -1,0 +1,24 @@
+{
+  "source": "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/Views/SimpleCalendarView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 66
+        }
+      }
+    ]
+  },
+  "version": 1
+}

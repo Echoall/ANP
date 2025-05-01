@@ -1,0 +1,24 @@
+{
+  "source": "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/SimpleTestView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "测试视图",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 6
+        }
+      },
+      {
+        "comment": "",
+        "key": "如果你能看到这个界面，说明项目已成功配置",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 10
+        }
+      }
+    ]
+  },
+  "version": 1
+}

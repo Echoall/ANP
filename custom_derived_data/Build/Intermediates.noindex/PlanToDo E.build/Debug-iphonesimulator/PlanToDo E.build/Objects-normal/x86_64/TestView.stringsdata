@@ -1,0 +1,16 @@
+{
+  "source": "/Users/an/CURSOR/IOS/PlanToDo_Clean/PlanToDo E/TaskManager/TestView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "测试运行",
+        "location": {
+          "startingColumn": 14,
+          "startingLine": 5
+        }
+      }
+    ]
+  },
+  "version": 1
+}
