@@ -29,7 +29,7 @@ struct TaskItemView: View {
                     }) {
                         Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
                             .font(.system(size: 22))
-                            .foregroundColor(task.isCompleted ? .green : Color(.systemGray))
+                            .foregroundColor(task.isCompleted ? .green : Color.gray)
                     }
                     .buttonStyle(BorderlessButtonStyle())
                     
@@ -73,7 +73,11 @@ struct TaskItemView: View {
                     }
                 }
                 .padding(10)
+                #if os(iOS)
                 .background(Color(colorScheme == .dark ? .secondarySystemBackground : .systemBackground))
+                #else
+                .background(colorScheme == .dark ? Color(.darkGray).opacity(0.3) : Color(.white))
+                #endif
                 .cornerRadius(10)
             }
             .buttonStyle(PlainButtonStyle())
@@ -89,7 +93,7 @@ struct TaskItemView: View {
                             }) {
                                 Image(systemName: subtask.isCompleted ? "checkmark.circle.fill" : "circle")
                                     .font(.system(size: 18))
-                                    .foregroundColor(subtask.isCompleted ? .green : Color(.systemGray))
+                                    .foregroundColor(subtask.isCompleted ? .green : Color.gray)
                             }
                             .buttonStyle(BorderlessButtonStyle())
                             
@@ -104,7 +108,11 @@ struct TaskItemView: View {
                         .padding(.vertical, 8)
                         .padding(.horizontal, 20)
                         .padding(.leading, 22) // 缩进
+                        #if os(iOS)
                         .background(Color(colorScheme == .dark ? .tertiarySystemBackground : .secondarySystemBackground))
+                        #else
+                        .background(colorScheme == .dark ? Color(.darkGray).opacity(0.2) : Color(.lightGray).opacity(0.2))
+                        #endif
                     }
                 }
                 .cornerRadius(10)

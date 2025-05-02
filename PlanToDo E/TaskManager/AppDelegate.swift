@@ -1,4 +1,5 @@
 import Foundation
+#if os(iOS)
 import UIKit
 
 // 应用程序的AppDelegate，独立为一个单独的文件以避免重复定义
@@ -24,4 +25,13 @@ public class AppDelegate: NSObject, UIApplicationDelegate {
             }
         }
     }
-} 
+}
+#else
+// macOS版本的应用程序代理
+public class AppDelegate: NSObject {
+    public func application() -> Bool {
+        print("应用程序已启动 (macOS)")
+        return true
+    }
+}
+#endif 

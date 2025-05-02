@@ -1,6 +1,7 @@
 import SwiftUI
 
 // 辅助获取安全区域的扩展
+#if os(iOS)
 extension UIApplication {
     static var safeAreaTop: CGFloat {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -10,11 +11,20 @@ extension UIApplication {
         return 0
     }
 }
+#else
+// macOS平台下的替代实现
+struct UIApplication {
+    static var safeAreaTop: CGFloat {
+        return 0
+    }
+}
+#endif
 
 // 定义特殊分类的ID
 enum SpecialCategory: String, Identifiable, CaseIterable {
     case allTasks = "all_tasks"  // 待办任务
     case upcoming = "upcoming"   // 即将到来
+    case completed = "completed" // 已完成
     
     var id: String {
         return self.rawValue
@@ -24,6 +34,7 @@ enum SpecialCategory: String, Identifiable, CaseIterable {
         switch self {
         case .allTasks: return "待办任务"
         case .upcoming: return "即将到来"
+        case .completed: return "已完成"
         }
     }
     
@@ -31,6 +42,7 @@ enum SpecialCategory: String, Identifiable, CaseIterable {
         switch self {
         case .allTasks: return "list.bullet"
         case .upcoming: return "clock"
+        case .completed: return "checkmark.circle"
         }
     }
     
@@ -38,6 +50,7 @@ enum SpecialCategory: String, Identifiable, CaseIterable {
         switch self {
         case .allTasks: return "#007AFF" // 蓝色
         case .upcoming: return "#FF9500" // 橙色
+        case .completed: return "#34C759" // 绿色
         }
     }
 }
@@ -117,7 +130,11 @@ struct MainView: View {
                             .padding(.vertical, 5)
                             .background(
                                 Capsule()
+                                    #if os(iOS)
                                     .fill(Color(.systemGray6))
+                                    #else
+                                    .fill(Color.gray.opacity(0.2))
+                                    #endif
                             )
                         }
                         .popover(isPresented: $showingSortOptions) {
@@ -148,7 +165,11 @@ struct MainView: View {
                             }
                         }
                         .padding(10)
+                        #if os(iOS)
                         .background(Color(.secondarySystemBackground))
+                        #else
+                        .background(Color.gray.opacity(0.1))
+                        #endif
                         .cornerRadius(10)
                         .padding(.horizontal)
                         .padding(.bottom, 10)
@@ -271,40 +292,15 @@ struct MainView: View {
                     Spacer(minLength: 0)
                 }
                 .overlay(
-                    // 悬浮添加按钮
-                    VStack {
-                        Spacer()
-                        
-                        Button(action: {
-                            if selectedCategoryId != nil && !isSpecialCategorySelected {
-                                showingAddTask = true
-                            }
-                        }) {
-                            HStack {
-                                Image(systemName: "plus.circle.fill")
-                                    .font(.title2)
-                                Text("添加任务")
-                                    .fontWeight(.medium)
-                            }
-                            .foregroundColor(.white)
-                            .padding(.vertical, 12)
-                            .padding(.horizontal, 20)
-                            .background(
-                                Capsule()
-                                    .fill(Color.blue)
-                            )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
-                        }
-                        .disabled(selectedCategoryId == nil || isSpecialCategorySelected)
-                        .opacity(selectedCategoryId == nil || isSpecialCategorySelected ? 0.6 : 1)
-                        .padding(.bottom, 20)
-                    }
+                    Group {} // 移除原有的悬浮添加按钮，改用全局添加按钮
                 )
                 .navigationBarHidden(true) // 隐藏导航栏
                 .sheet(isPresented: $showingAddTask) {
-                    if let categoryId = selectedCategoryId, !isSpecialCategorySelected {
-                        TaskQuickCreateView(viewModel: viewModel, isPresented: $showingAddTask)
-                    }
+                    EnhancedTaskCreateView(
+                        viewModel: viewModel, 
+                        isPresented: $showingAddTask,
+                        initialCategoryId: (!isSpecialCategorySelected && selectedCategoryId != nil) ? selectedCategoryId : nil
+                    )
                 }
                 .sheet(isPresented: $showingTaskEditSheet) {
                     if let task = selectedTaskForEditing {
@@ -357,6 +353,17 @@ struct MainView: View {
             .sheet(isPresented: $showCalendarView) {
                 CalendarView(mainViewModel: viewModel)
             }
+            
+            // 添加全局悬浮按钮
+            VStack {
+                Spacer()
+                HStack {
+                    FloatingAddButton {
+                        showingAddTask = true
+                    }
+                    Spacer()
+                }
+            }
         }
     }
     
@@ -384,7 +391,7 @@ struct MainView: View {
     // 已完成的任务
     private var filteredCompletedTasks: [Task] {
         // 对于"待办任务"和"即将到来"分类，不显示已完成任务
-        if selectedSpecialCategory != nil {
+        if selectedSpecialCategory == .allTasks || selectedSpecialCategory == .upcoming {
             return []
         }
         return filteredTasks.filter { $0.isCompleted }
@@ -412,6 +419,11 @@ struct MainView: View {
                     $0.dueDate <= nextDay && 
                     $0.dueDate >= Date()
                 }
+                return applySearchFilter(to: filtered)
+                
+            case .completed:
+                // 所有已完成的任务
+                let filtered = allTasks.filter { $0.isCompleted }
                 return applySearchFilter(to: filtered)
             }
         }

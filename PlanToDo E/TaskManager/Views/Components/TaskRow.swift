@@ -4,6 +4,7 @@ struct TaskRow: View {
     let task: Task
     let viewModel: MainViewModel
     var onSelect: ((Task) -> Void)? = nil
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         HStack(spacing: 12) {
@@ -58,7 +59,11 @@ struct TaskRow: View {
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 4)
+        #if os(iOS)
         .background(Color(.systemBackground))
+        #else
+        .background(colorScheme == .dark ? Color(.darkGray).opacity(0.3) : Color(.white))
+        #endif
         .contentShape(Rectangle()) // 确保整行都可点击
         .onTapGesture {
             print("直接点击TaskRow: \(task.title)")

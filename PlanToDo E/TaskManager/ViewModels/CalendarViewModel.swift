@@ -67,6 +67,12 @@ class CalendarViewModel: ObservableObject {
         return tasksByDate.first(where: { calendar.isDate($0.key, inSameDayAs: selectedDate) })?.value
     }
     
+    // 获取指定日期的任务
+    func tasksForDate(_ date: Date) -> [TaskItem]? {
+        let calendar = Calendar.current
+        return tasksByDate.first(where: { calendar.isDate($0.key, inSameDayAs: date) })?.value
+    }
+    
     // 判断日期是否有任务
     func hasTasks(for date: Date) -> Bool {
         tasksByDate.keys.contains(where: { Calendar.current.isDate($0, inSameDayAs: date) })
@@ -128,4 +134,38 @@ class CalendarViewModel: ObservableObject {
         formatter.locale = Locale(identifier: "zh_CN")
         return formatter
     }()
+    
+    // 根据优先级获取颜色 - 公共方法
+    func priorityColor(_ priority: TaskPriority) -> Color {
+        switch priority {
+        case .high:
+            return .red
+        case .medium:
+            return .orange
+        case .low:
+            return .green
+        }
+    }
+    
+    // 格式化时间 - 公共方法
+    func formattedTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+    
+    // 代理方法：更新任务（转发到mainViewModel）
+    func updateTask(_ task: Task) {
+        mainViewModel.updateTask(task)
+    }
+    
+    // 代理方法：创建分类（转发到mainViewModel）
+    func createCategory(_ category: Category) {
+        mainViewModel.createCategory(category)
+    }
+    
+    // 代理方法：添加分类（转发到mainViewModel）
+    func addCategory(_ category: Category) {
+        mainViewModel.createCategory(category)
+    }
 } 

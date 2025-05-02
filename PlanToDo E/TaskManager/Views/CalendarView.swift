@@ -15,7 +15,7 @@ struct CalendarView: View {
     
     // 日历模式枚举
     enum CalendarMode {
-        case month, day
+        case month, grid
     }
     
     init(mainViewModel: MainViewModel = MainViewModel.shared) {
@@ -24,43 +24,55 @@ struct CalendarView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                // 标题和切换视图按钮
-                HStack {
-                    Text(calendarMode == .month ? "月历" : "日程")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding(.leading)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        withAnimation {
-                            calendarMode = calendarMode == .month ? .day : .month
+            ZStack {
+                VStack(spacing: 0) {
+                    // 标题和切换视图按钮
+                    HStack {
+                        Text(calendarTitle)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding(.leading)
+                        
+                        Spacer()
+                        
+                        if calendarMode == .grid {
+                            Button(action: {
+                                withAnimation {
+                                    calendarMode = .month
+                                }
+                            }) {
+                                Image(systemName: calendarIcon)
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.blue)
+                            }
+                            .padding(.trailing)
                         }
-                    }) {
-                        Image(systemName: calendarMode == .month ? "list.bullet" : "calendar")
-                            .font(.system(size: 20))
-                            .foregroundColor(.blue)
                     }
-                    .padding(.trailing)
-                }
-                .padding(.vertical, 8)
-                
-                // 根据模式显示不同的日历视图
-                Group {
-                    if calendarMode == .month {
-                        MonthCalendarView()
-                    } else {
-                        DayCalendarView()
+                    .padding(.vertical, 8)
+                    
+                    // 根据模式显示不同的日历视图
+                    Group {
+                        if calendarMode == .month {
+                            MonthCalendarView()
+                        } else {
+                            GridCalendarView(
+                                viewModel: viewModel,
+                                selectedDate: $selectedDate,
+                                showingTaskCreateView: $showingTaskCreateView,
+                                showingTaskEditSheet: $showingTaskEditSheet,
+                                selectedTask: $selectedTask
+                            )
+                        }
                     }
                 }
+                .navigationBarHidden(true)
                 
-                // 新建任务和编辑任务的表单
+                // 新的任务创建和编辑表单
                 .sheet(isPresented: $showingTaskCreateView) {
-                    TaskQuickCreateView(
+                    EnhancedTaskCreateView(
                         viewModel: viewModel.mainViewModel,
-                        isPresented: $showingTaskCreateView
+                        isPresented: $showingTaskCreateView,
+                        initialDate: selectedDate
                     )
                 }
                 .sheet(isPresented: $showingTaskEditSheet) {
@@ -74,8 +86,38 @@ struct CalendarView: View {
                 .sheet(isPresented: $showingAddCategoryView) {
                     AddCategoryView()
                 }
+                
+                // 添加全局悬浮按钮
+                VStack {
+                    Spacer()
+                    HStack {
+                        FloatingAddButton {
+                            showingTaskCreateView = true
+                        }
+                        Spacer()
+                    }
+                }
             }
-            .navigationBarHidden(true)
+        }
+    }
+    
+    // 计算当前模式的标题
+    private var calendarTitle: String {
+        switch calendarMode {
+        case .month:
+            return "月历"
+        case .grid:
+            return "日程"
+        }
+    }
+    
+    // 计算当前模式的图标
+    private var calendarIcon: String {
+        switch calendarMode {
+        case .month:
+            return "calendar"
+        case .grid:
+            return "calendar"
         }
     }
     
@@ -135,7 +177,7 @@ struct CalendarView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 0) {
                 ForEach(viewModel.daysInMonth(), id: \.self) { date in
                     if let date = date {
-                        DateCell(date: date, isSelected: viewModel.isSameDay(date1: date, date2: selectedDate))
+                        MonthDateCell(date: date, isSelected: viewModel.isSameDay(date1: date, date2: selectedDate))
                             .onTapGesture {
                                 withAnimation {
                                     viewModel.selectedDate = date
@@ -164,6 +206,24 @@ struct CalendarView: View {
                         Spacer()
                         
                         Button(action: {
+                            withAnimation {
+                                calendarMode = .grid
+                            }
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "square.grid.2x2")
+                                    .font(.system(size: 14))
+                                Text("网格视图")
+                                    .font(.caption)
+                            }
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(6)
+                        }
+                        
+                        Button(action: {
                             showingTaskCreateView = true
                         }) {
                             Image(systemName: "plus")
@@ -188,136 +248,35 @@ struct CalendarView: View {
                         }
                     } else {
                         VStack(spacing: 16) {
-                            Spacer()
+                            Spacer().frame(height: 20)
                             
                             Image(systemName: "calendar.badge.clock")
-                                .font(.system(size: 48))
-                                .foregroundColor(.gray)
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray.opacity(0.7))
                             
-                            Text("这一天还没有任务")
+                            Text("这一天没有任务")
                                 .font(.headline)
                                 .foregroundColor(.gray)
                             
-                            Button(action: {
-                                showingTaskCreateView = true
-                            }) {
-                                Text("添加任务")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 20)
-                                    .padding(.vertical, 10)
-                                    .background(Color.blue)
-                                    .cornerRadius(8)
-                            }
-                            
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity, minHeight: 250)
-                    }
-                }
-                .padding(.bottom, 16)
-            }
-        }
-    }
-    
-    // 日视图
-    private func DayCalendarView() -> some View {
-        VStack(spacing: 0) {
-            // 日期导航
-            HStack {
-                Button(action: {
-                    withAnimation {
-                        if let newDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) {
-                            selectedDate = newDate
-                            viewModel.selectedDate = newDate
-                        }
-                    }
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.blue)
-                        .padding(8)
-                }
-                
-                Spacer()
-                
-                Text(viewModel.dateFormatter.string(from: selectedDate))
-                    .font(.headline)
-                
-                Spacer()
-                
-                Button(action: {
-                    withAnimation {
-                        if let newDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) {
-                            selectedDate = newDate
-                            viewModel.selectedDate = newDate
-                        }
-                    }
-                }) {
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.blue)
-                        .padding(8)
-                }
-            }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
-            
-            Divider()
-            
-            // 任务时间线
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    Button(action: {
-                        showingTaskCreateView = true
-                    }) {
-                        HStack {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.blue)
-                            Text("添加任务")
-                                .foregroundColor(.blue)
-                            Spacer()
-                        }
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
-                    }
-                    
-                    if let tasks = viewModel.tasksForSelectedDate(), !tasks.isEmpty {
-                        ForEach(tasks) { task in
-                            TaskRowView(task: task)
+                            Text("利用这段空闲时间来放松一下吧")
+                                .font(.subheadline)
+                                .foregroundColor(.gray.opacity(0.8))
+                                .multilineTextAlignment(.center)
                                 .padding(.horizontal)
-                                .padding(.vertical, 4)
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    selectedTask = task
-                                    showingTaskEditSheet = true
-                                }
+                            
+                            Spacer().frame(height: 20)
                         }
-                    } else {
-                        VStack(spacing: 16) {
-                            Spacer()
-                            
-                            Image(systemName: "calendar.badge.clock")
-                                .font(.system(size: 48))
-                                .foregroundColor(.gray)
-                            
-                            Text("今日暂无任务")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                            
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity, minHeight: 300)
+                        .frame(maxWidth: .infinity)
+                        .padding()
                     }
                 }
-                .padding(.vertical, 8)
+                .padding(.bottom, 20)
             }
         }
     }
     
     // 日期单元格
-    private func DateCell(date: Date, isSelected: Bool) -> some View {
+    private func MonthDateCell(date: Date, isSelected: Bool) -> some View {
         let calendar = Calendar.current
         let isToday = calendar.isDateInToday(date)
         let day = calendar.component(.day, from: date)
@@ -421,26 +380,17 @@ struct CalendarView: View {
     private func toggleTaskCompletion(_ task: Task) {
         var updatedTask = task
         updatedTask.isCompleted.toggle()
-        viewModel.mainViewModel.updateTask(updatedTask)
+        viewModel.updateTask(updatedTask)
     }
     
     // 格式化时间
     private func formattedTime(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter.string(from: date)
+        return viewModel.formattedTime(date)
     }
     
     // 根据优先级获取颜色
     private func priorityColor(_ priority: TaskPriority) -> Color {
-        switch priority {
-        case .high:
-            return .red
-        case .medium:
-            return .orange
-        case .low:
-            return .green
-        }
+        return viewModel.priorityColor(priority)
     }
     
     // 添加分类视图
@@ -479,8 +429,121 @@ struct CalendarView: View {
     private func addCategory() {
         if !categoryName.isEmpty {
             let newCategory = Category(id: UUID(), name: categoryName, color: selectedColor)
-            viewModel.mainViewModel.createCategory(newCategory)
+            viewModel.addCategory(newCategory)
             showingAddCategoryView = false
+        }
+    }
+}
+
+// 日期单元格视图
+struct DateCell: View {
+    var date: Date
+    var isSelected: Bool
+    
+    @Environment(\.calendar) var calendar
+    @EnvironmentObject var viewModel: CalendarViewModel
+    
+    var body: some View {
+        VStack(spacing: 4) {
+            // 日期文本
+            Text("\(calendar.component(.day, from: date))")
+                .font(.system(size: 16, weight: isSelected ? .bold : .regular))
+                .foregroundColor(isSelected ? .white : isWeekend() ? .red : .primary)
+                .frame(width: 25, height: 25)
+                .background(isSelected ? Color.blue : Color.clear)
+                .clipShape(Circle())
+            
+            // 任务指示器
+            HStack(spacing: 4) {
+                ForEach(taskIndicators(), id: \.self) { priority in
+                    Circle()
+                        .fill(priorityColor(priority))
+                        .frame(width: 4, height: 4)
+                }
+            }
+            .frame(height: 6)
+            .padding(.bottom, 4)
+        }
+        .frame(height: 40)
+        .contentShape(Rectangle())
+    }
+    
+    // 检查是否为周末
+    private func isWeekend() -> Bool {
+        let weekday = calendar.component(.weekday, from: date)
+        return weekday == 1 || weekday == 7 // 1是周日,7是周六
+    }
+    
+    // 获取任务指示器列表
+    private func taskIndicators() -> [TaskPriority] {
+        guard let tasks = viewModel.tasksForDate(date), !tasks.isEmpty else { return [] }
+        
+        var indicators: [TaskPriority] = []
+        var priorities: Set<TaskPriority> = []
+        
+        for task in tasks {
+            if !priorities.contains(task.priority) {
+                priorities.insert(task.priority)
+                indicators.append(task.priority)
+                
+                // 最多显示3个指示器
+                if indicators.count >= 3 {
+                    break
+                }
+            }
+        }
+        
+        return indicators
+    }
+    
+    // 获取优先级颜色
+    private func priorityColor(_ priority: TaskPriority) -> Color {
+        return viewModel.priorityColor(priority)
+    }
+}
+
+// 自定义添加分类视图
+struct AddCategoryView: View {
+    @EnvironmentObject var viewModel: CalendarViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @State private var categoryName: String = ""
+    @State private var selectedColor: String = "#FF5733"
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("分类信息")) {
+                    TextField("分类名称", text: $categoryName)
+                    
+                    // 色彩选择器 (简化版)
+                    HStack {
+                        Text("颜色")
+                        Spacer()
+                        Circle()
+                            .fill(Color(hex: selectedColor) ?? .red)
+                            .frame(width: 24, height: 24)
+                    }
+                }
+            }
+            .navigationTitle("添加分类")
+            .navigationBarItems(
+                leading: Button("取消") {
+                    presentationMode.wrappedValue.dismiss()
+                },
+                trailing: Button("保存") {
+                    if !categoryName.isEmpty {
+                        let newCategory = Category(
+                            id: UUID(),
+                            name: categoryName,
+                            color: selectedColor,
+                            order: viewModel.mainViewModel.categories.count + 1
+                        )
+                        viewModel.addCategory(newCategory)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+                .disabled(categoryName.isEmpty)
+            )
         }
     }
 } 

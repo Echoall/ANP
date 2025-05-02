@@ -16,7 +16,11 @@ struct LoadingIndicatorView: View {
                 .foregroundColor(.secondary)
         }
         .padding()
+        #if os(iOS)
         .background(Color(.secondarySystemBackground))
+        #else
+        .background(Color.gray.opacity(0.1))
+        #endif
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)
     }

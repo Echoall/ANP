@@ -1,11 +1,20 @@
 import SwiftUI
 
 extension Color {
+    #if os(iOS)
     static let taskBackground = Color(UIColor.systemBackground)
     static let taskGroupBackground = Color(UIColor.secondarySystemBackground)
     static let taskText = Color(UIColor.label)
     static let taskSecondaryText = Color(UIColor.secondaryLabel)
     static let taskTertiaryText = Color(UIColor.tertiaryLabel)
+    #else
+    static let taskBackground = Color(.textBackgroundColor)
+    static let taskGroupBackground = Color(.windowBackgroundColor)
+    static let taskText = Color(.labelColor)
+    static let taskSecondaryText = Color(.secondaryLabelColor)
+    static let taskTertiaryText = Color(.tertiaryLabelColor)
+    #endif
+    
     static let taskAccent = Color.blue
     
     // 从十六进制字符串转换为Color

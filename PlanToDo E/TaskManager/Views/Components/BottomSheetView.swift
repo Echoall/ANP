@@ -4,10 +4,16 @@ struct BottomSheetView<Content: View>: View {
     @Binding var isPresented: Bool
     let content: Content
     
+    #if os(iOS)
     @State private var offset: CGFloat = UIScreen.main.bounds.height
     private let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.8
+    #else
+    @State private var offset: CGFloat = 1000 // 使用一个足够大的值代替屏幕高度
+    private let maxHeight: CGFloat = 600 // macOS固定高度
+    #endif
     private let minHeight: CGFloat = 100
     private let threshold: CGFloat = 100
+    @Environment(\.colorScheme) private var colorScheme
     
     init(isPresented: Binding<Bool>, @ViewBuilder content: () -> Content) {
         self._isPresented = isPresented
@@ -34,7 +40,11 @@ struct BottomSheetView<Content: View>: View {
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
+                        #if os(iOS)
                         .fill(Color(.systemBackground))
+                        #else
+                        .fill(colorScheme == .dark ? Color(.darkGray) : Color.white)
+                        #endif
                         .shadow(radius: 10)
                     
                     content
@@ -65,7 +75,11 @@ struct BottomSheetView<Content: View>: View {
         .ignoresSafeArea(.container, edges: .bottom)
         .onChange(of: isPresented) { newValue in
             withAnimation(.spring()) {
+                #if os(iOS)
                 offset = newValue ? 0 : UIScreen.main.bounds.height
+                #else
+                offset = newValue ? 0 : 1000
+                #endif
             }
         }
     }

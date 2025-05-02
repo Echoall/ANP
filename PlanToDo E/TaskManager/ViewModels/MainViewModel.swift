@@ -59,13 +59,47 @@ class MainViewModel: ObservableObject {
         let localCategories = storageService.loadCategories()
         if !localCategories.isEmpty {
             self.categories = localCategories
+            
+            // 检查是否存在三个默认分类，如果不存在则添加
+            let hasTodoCategory = categories.contains { $0.name == "待办" }
+            let hasUpcomingCategory = categories.contains { $0.name == "即将" }
+            let hasCompletedCategory = categories.contains { $0.name == "已完成" }
+            
+            var categoriesChanged = false
+            
+            // 添加缺失的分类
+            if !hasTodoCategory {
+                let todoCategory = Category(name: "待办", color: "#007AFF", order: 0)
+                self.categories.append(todoCategory)
+                categoriesChanged = true
+            }
+            
+            if !hasUpcomingCategory {
+                let upcomingCategory = Category(name: "即将", color: "#FF9500", order: 1)
+                self.categories.append(upcomingCategory)
+                categoriesChanged = true
+            }
+            
+            if !hasCompletedCategory {
+                let completedCategory = Category(name: "已完成", color: "#34C759", order: 2)
+                self.categories.append(completedCategory)
+                categoriesChanged = true
+            }
+            
+            // 如果添加了分类，保存到本地
+            if categoriesChanged {
+                storageService.saveCategories(self.categories)
+                print("已添加缺失的默认分类")
+            }
         } else {
             // 创建默认分类
-            let defaultCategory = Category(name: "待办", color: "#007AFF", order: 0)
-            self.categories = [defaultCategory]
+            let todoCategory = Category(name: "待办", color: "#007AFF", order: 0)
+            let upcomingCategory = Category(name: "即将", color: "#FF9500", order: 1)
+            let completedCategory = Category(name: "已完成", color: "#34C759", order: 2)
+            self.categories = [todoCategory, upcomingCategory, completedCategory]
             // 保存默认分类到本地
             storageService.saveCategories(self.categories)
-            print("已创建默认分类'待办'")
+            print("已创建默认分类'待办'、'即将'和'已完成'")
         }
         
         // 加载任务
