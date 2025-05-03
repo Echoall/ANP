@@ -72,6 +72,7 @@ struct MainView: View {
     @State private var showCompletedTasks = false
     @State private var showSearchBar = false
     @State private var showCalendarView = false
+    @State private var showAIChat = false
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -354,10 +355,19 @@ struct MainView: View {
                 CalendarView(mainViewModel: viewModel)
             }
             
-            // 添加全局悬浮按钮
+            // Coral聊天页面视图
+            .sheet(isPresented: $showAIChat) {
+                NavigationView {
+                    ChatView()
+                }
+            }
+            
+            // 全局悬浮按钮部分
             VStack {
                 Spacer()
                 HStack {
+                    Spacer()
+                    
                     FloatingAddButton {
                         showingAddTask = true
                     }
@@ -533,7 +543,7 @@ struct CategoryManagerView: View {
                 ForEach(viewModel.categories) { category in
                     HStack {
                         Circle()
-                            .fill(Color(hex: category.color))
+                            .fill(Color.blue)
                             .frame(width: 12, height: 12)
                         
                         Text(category.name)

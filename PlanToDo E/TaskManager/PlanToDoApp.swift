@@ -30,6 +30,15 @@ struct PlanToDoApp: App {
                         Text("任务")
                     }
                 
+                // AI助手标签页
+                NavigationView {
+                    ChatView()
+                }
+                .tabItem {
+                    Image(systemName: "message")
+                    Text("AI助手")
+                }
+                
                 // 设置标签页
                 SettingsView()
                     .tabItem {

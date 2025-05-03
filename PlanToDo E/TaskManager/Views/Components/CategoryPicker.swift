@@ -34,7 +34,7 @@ struct CategoryItem: View {
         Button(action: onTap) {
             HStack(spacing: 6) {
                 Circle()
-                    .fill(Color(hex: category.color))
+                    .fill(Color.blue)
                     .frame(width: 10, height: 10)
                 
                 Text(category.name)

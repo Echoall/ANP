@@ -17,7 +17,7 @@ extension Color {
     
     static let taskAccent = Color.blue
     
-    // 从十六进制字符串转换为Color
+    // 从十六进制字符串转换为Color - 增加了跨平台兼容性
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
@@ -38,8 +38,13 @@ extension Color {
             .sRGB,
             red: Double(r) / 255,
             green: Double(g) / 255,
-            blue:  Double(b) / 255,
+            blue: Double(b) / 255,
             opacity: Double(a) / 255
         )
+    }
+    
+    // 新增颜色方法，用于在项目中替代直接使用Color(hex:)
+    static func fromHex(_ hex: String) -> Color {
+        return Color(hex: hex)
     }
 } 

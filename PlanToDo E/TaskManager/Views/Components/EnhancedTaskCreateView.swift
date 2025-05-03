@@ -411,7 +411,7 @@ struct EnhancedTaskCreateView: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 10) {
                     ForEach(colorOptions, id: \.self) { color in
                         Circle()
-                            .fill(Color(hex: color))
+                            .fill(Color.blue)
                             .frame(width: 40, height: 40)
                             .overlay(
                                 Circle()
@@ -794,7 +794,11 @@ struct EnhancedTaskCreateView: View {
     private func addSubtask() {
         guard !newSubtaskTitle.isEmpty else { return }
         
-        subtasks.append(SubTask(title: newSubtaskTitle))
+        subtasks.append(SubTask(
+            title: newSubtaskTitle,
+            isCompleted: false,
+            createdAt: Date()
+        ))
         newSubtaskTitle = ""
         
         // 继续保持子任务输入框焦点，方便连续添加
@@ -899,7 +903,7 @@ struct CategoryButton: View {
     var body: some View {
         HStack(spacing: 8) {
             Circle()
-                .fill(Color(hex: category.color))
+                .fill(Color.blue)
                 .frame(width: 12, height: 12)
             
             Text(category.name)
@@ -907,11 +911,11 @@ struct CategoryButton: View {
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 12)
-        .background(isSelected ? Color(hex: category.color).opacity(colorScheme == .dark ? 0.25 : 0.15) : (colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground)))
+        .background(isSelected ? Color.blue.opacity(colorScheme == .dark ? 0.25 : 0.15) : (colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground)))
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color(hex: category.color).opacity(colorScheme == .dark ? 0.6 : 0.3), lineWidth: isSelected ? 1.5 : 1)
+                .stroke(Color.blue.opacity(colorScheme == .dark ? 0.6 : 0.3), lineWidth: isSelected ? 1.5 : 1)
         )
     }
 }

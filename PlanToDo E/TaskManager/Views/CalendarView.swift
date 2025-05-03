@@ -341,7 +341,7 @@ struct CalendarView: View {
                     if let category = getCategoryForTask(task) {
                         HStack(spacing: 4) {
                             Circle()
-                                .fill(Color(hex: category.color))
+                                .fill(Color.blue)
                                 .frame(width: 8, height: 8)
                             
                             Text(category.name)
@@ -401,7 +401,7 @@ struct CalendarView: View {
                     TextField("分类名称", text: $categoryName)
                     
                     ColorPicker("选择颜色", selection: Binding(
-                        get: { Color(hex: selectedColor) },
+                        get: { Color.blue },
                         set: { _ in selectedColor = "#FF5733" }
                     ))
                 }
@@ -520,7 +520,7 @@ struct AddCategoryView: View {
                         Text("颜色")
                         Spacer()
                         Circle()
-                            .fill(Color(hex: selectedColor) ?? .red)
+                            .fill(Color.blue)
                             .frame(width: 24, height: 24)
                     }
                 }

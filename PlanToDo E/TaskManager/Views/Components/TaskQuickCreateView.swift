@@ -1,11 +1,22 @@
-import SwiftUI
 import Combine
+import SwiftUI
+import Foundation
 
 // 子任务模型
 struct SubTaskItem: Identifiable {
     var id = UUID()
     var title: String
     var isCompleted: Bool = false
+    var createdAt: Date = Date()
+    
+    func toSubTask() -> SubTask {
+        return SubTask(
+            id: self.id, 
+            title: self.title, 
+            isCompleted: self.isCompleted, 
+            createdAt: self.createdAt
+        )
+    }
 }
 
 struct TaskQuickCreateView: View {
@@ -154,7 +165,7 @@ struct TaskQuickCreateView: View {
                             }) {
                                 HStack {
                                     Circle()
-                                        .fill(Color(hex: category.color))
+                                        .fill(Color.blue)
                                         .frame(width: 12, height: 12)
                                     Text(category.name)
                                     if selectedCategoryId == category.id {
@@ -168,7 +179,7 @@ struct TaskQuickCreateView: View {
                             if let selectedId = selectedCategoryId,
                                let category = viewModel.categories.first(where: { $0.id == selectedId }) {
                                 Circle()
-                                    .fill(Color(hex: category.color))
+                                    .fill(Color.blue)
                                     .frame(width: 12, height: 12)
                                 Text(category.name)
                             } else {
@@ -379,11 +390,7 @@ struct TaskQuickCreateView: View {
         
         // 添加子任务
         for subtask in subtasks {
-            newTask.subtasks.append(SubTask(
-                id: subtask.id,
-                title: subtask.title,
-                isCompleted: subtask.isCompleted
-            ))
+            newTask.subtasks.append(subtask.toSubTask())
         }
         
         // 保存任务

@@ -11,10 +11,15 @@ struct BottomSheetKeyboardView<Content: View>: View {
     
     var body: some View {
         BottomSheetView(isPresented: $isPresented) {
+            #if os(iOS)
             KeyboardAwareView {
                 content
                     .dismissKeyboardOnTap()
             }
+            #else
+            // 在非iOS平台上直接显示内容
+            content
+            #endif
         }
     }
 } 

@@ -17,4 +17,9 @@ struct Category: Identifiable, Codable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
+    
+    // 跨平台兼容的颜色获取方法
+    var backgroundColor: Color {
+        return Color.fromHex(color)
+    }
 } 

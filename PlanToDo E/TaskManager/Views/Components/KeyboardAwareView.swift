@@ -4,8 +4,10 @@ import Combine
 /* 删除重复定义，移至单独文件中 */
 
 struct KeyboardAwareView<Content: View>: View {
+    #if os(iOS)
     @State private var keyboardHeight: CGFloat = 0
     @State private var isKeyboardVisible = false
+    #endif
     let content: Content
     
     init(@ViewBuilder content: () -> Content) {
@@ -13,6 +15,7 @@ struct KeyboardAwareView<Content: View>: View {
     }
     
     var body: some View {
+        #if os(iOS)
         content
             .padding(.bottom, isKeyboardVisible ? keyboardHeight : 0)
             .animation(.easeOut(duration: 0.16), value: isKeyboardVisible)
@@ -28,6 +31,9 @@ struct KeyboardAwareView<Content: View>: View {
                     keyboardHeight = 0
                 }
             }
+        #else
+        content
+        #endif
     }
 }
 

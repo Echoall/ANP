@@ -23,7 +23,7 @@ struct FloatingAddButton: View {
                 Circle()
                     .fill(
                         LinearGradient(
-                            gradient: Gradient(colors: [Color.blue, Color(hex: "#4285F4")]),
+                            gradient: Gradient(colors: [Color.blue, Color.blue.opacity(0.7)]),
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )

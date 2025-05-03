@@ -64,7 +64,7 @@ struct SideMenuView: View {
                                 }) {
                                     HStack {
                                         Image(systemName: specialCategory.icon)
-                                            .foregroundColor(Color(hex: specialCategory.color))
+                                            .foregroundColor(Color.blue)
                                             .font(.system(size: 20))
                                             .frame(width: 30)
                                         
@@ -119,7 +119,7 @@ struct SideMenuView: View {
                                     }) {
                                         HStack {
                                             Circle()
-                                                .fill(Color(hex: category.color))
+                                                .fill(Color.blue)
                                                 .frame(width: 12, height: 12)
                                                 .padding(.trailing, 8)
                                             
@@ -172,6 +172,22 @@ struct SideMenuView: View {
                                         .frame(width: 30)
                                     
                                     Text("设置")
+                                        .foregroundColor(.primary)
+                                    
+                                    Spacer()
+                                }
+                                .padding(.vertical, 12)
+                                .padding(.horizontal, 20)
+                            }
+                            
+                            // AI助手按钮
+                            NavigationLink(destination: ChatView()) {
+                                HStack {
+                                    Image(systemName: "message")
+                                        .foregroundColor(.primary)
+                                        .frame(width: 30)
+                                    
+                                    Text("Coral")
                                         .foregroundColor(.primary)
                                     
                                     Spacer()

@@ -73,7 +73,7 @@ struct BottomSheetView<Content: View>: View {
             }
         }
         .ignoresSafeArea(.container, edges: .bottom)
-        .onChange(of: isPresented) { newValue in
+        .onChange(of: isPresented) { _, newValue in
             withAnimation(.spring()) {
                 #if os(iOS)
                 offset = newValue ? 0 : UIScreen.main.bounds.height

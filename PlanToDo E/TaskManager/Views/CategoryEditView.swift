@@ -87,7 +87,7 @@ struct ColorPickerView: View {
                 HStack(spacing: 12) {
                     ForEach(colorOptions, id: \.self) { color in
                         Circle()
-                            .fill(Color(hex: color))
+                            .fill(Color.blue)
                             .frame(width: 30, height: 30)
                             .overlay(
                                 Circle()
