@@ -13,6 +13,11 @@
 /* Begin PBXFileReference section */
 		A15D3E8F2D999001007A3B6A /* PlanToDo E.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlanToDo E.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15D3ED62D99919A007A3B6A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A15D3E922D999001007A3B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A15D3E932D999001007A3B6A /* PlanToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanToDoApp.swift; sourceTree = "<group>"; };
+		A15D3E942D999001007A3B6A /* TestRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRun.swift; sourceTree = "<group>"; };
+		A15D3E952D999001007A3B6A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		A15D3E962D999001007A3B6A /* SimpleTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,10 +44,29 @@
 		A15D3E862D999001007A3B6A = {
 			isa = PBXGroup;
 			children = (
+				A15D3E912D999001007A3B6A /* PlanToDo E */,
 				A15D3ED52D99919A007A3B6A /* Frameworks */,
 				A15D3E902D999001007A3B6A /* Products */,
-				A15D3F2A2D999284007A3B6A /* TaskManager */,
 			);
+			sourceTree = "<group>";
+		};
+		A15D3E912D999001007A3B6A /* PlanToDo E */ = {
+			isa = PBXGroup;
+			children = (
+				A15D3E922D999001007A3B6A /* AppDelegate.swift */,
+				A15D3E932D999001007A3B6A /* PlanToDoApp.swift */,
+				A15D3E942D999001007A3B6A /* TestRun.swift */,
+				A15D3E952D999001007A3B6A /* TestView.swift */,
+				A15D3E962D999001007A3B6A /* SimpleTestView.swift */,
+				A15D3E972D999001007A3B6A /* ViewModels */,
+				A15D3E982D999001007A3B6A /* Models */,
+				A15D3E992D999001007A3B6A /* Extensions */,
+				A15D3E9A2D999001007A3B6A /* Utilities */,
+				A15D3E9B2D999001007A3B6A /* Views */,
+				A15D3E9C2D999001007A3B6A /* Services */,
+				A15D3E9D2D999001007A3B6A /* Preview Content */,
+			);
+			path = "PlanToDo E";
 			sourceTree = "<group>";
 		};
 		A15D3E902D999001007A3B6A /* Products */ = {
@@ -135,6 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15D3EA12D999001007A3B6A /* AppDelegate.swift in Sources */,
+				A15D3EA22D999001007A3B6A /* PlanToDoApp.swift in Sources */,
+				A15D3EA32D999001007A3B6A /* TestRun.swift in Sources */,
+				A15D3EA42D999001007A3B6A /* TestView.swift in Sources */,
+				A15D3EA52D999001007A3B6A /* SimpleTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +222,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -265,13 +295,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "PlanToDo E.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = CMX28RC9VB;
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				EXECUTABLE_NAME = PlanToDoE;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/TaskManager/ProjectInfo.plist";
+				INFOPLIST_FILE = ProjectInfo.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,13 +327,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "PlanToDo E.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = CMX28RC9VB;
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				EXECUTABLE_NAME = PlanToDoE;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/TaskManager/ProjectInfo.plist";
+				INFOPLIST_FILE = ProjectInfo.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
