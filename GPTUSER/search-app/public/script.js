@@ -13,9 +13,18 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
   data.results.forEach(r => {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = r.url;
-    a.textContent = `${r.platform}：${r.url}`;
+    a.href = r.webUrl;
+    a.textContent = `${r.platform}：${r.webUrl}`;
     a.target = '_blank';
+    if (r.deepLink) {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = r.deepLink;
+        setTimeout(() => {
+          window.location.href = r.webUrl;
+        }, 1500);
+      });
+    }
     li.appendChild(a);
     list.appendChild(li);
   });
