@@ -1,3 +1,24 @@
+let latestResults = [];
+
+function openLink(r) {
+  if (r.deepLink) {
+    const win = window.open(r.deepLink, '_blank');
+    setTimeout(() => {
+      try {
+        if (win) {
+          win.location = r.webUrl;
+        } else {
+          window.open(r.webUrl, '_blank');
+        }
+      } catch (e) {
+        window.open(r.webUrl, '_blank');
+      }
+    }, 1500);
+  } else {
+    window.open(r.webUrl, '_blank');
+  }
+}
+
 document.getElementById('searchBtn').addEventListener('click', async () => {
   const query = document.getElementById('query').value.trim();
   if (!query) return;
@@ -8,15 +29,26 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     body: JSON.stringify({ query, platforms })
   });
   const data = await res.json();
+  latestResults = data.results;
   const list = document.getElementById('results');
   list.innerHTML = '';
-  data.results.forEach(r => {
+  latestResults.forEach(r => {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = r.url;
-    a.textContent = `${r.platform}：${r.url}`;
+    a.href = r.webUrl;
+    a.textContent = `${r.platform}：${r.webUrl}`;
     a.target = '_blank';
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLink(r);
+    });
     li.appendChild(a);
     list.appendChild(li);
   });
+  const openAllBtn = document.getElementById('openAllBtn');
+  openAllBtn.style.display = latestResults.length ? 'inline-block' : 'none';
+});
+
+document.getElementById('openAllBtn').addEventListener('click', () => {
+  latestResults.forEach(r => openLink(r));
 });
