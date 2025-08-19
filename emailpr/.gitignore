@@ -1,5 +1,5 @@
 node_modules/
-uploads/
+data/uploads/
 .env
 data/*.json
 !data/*.example.json

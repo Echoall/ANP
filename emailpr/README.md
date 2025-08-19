@@ -23,7 +23,7 @@ A minimal web application for uploading content and automatically sending emails
 node server.js
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to use the web interface. Uploaded content and scheduling information are stored locally in the `data` directory.
+Visit [http://localhost:3000](http://localhost:3000) to use the web interface. Uploaded content and scheduling information are stored in the `data` directory, and any files you upload are saved under `data/uploads/`.
 
 Emails are checked for sending every minute using `node-cron`.
 
