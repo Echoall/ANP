@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>自动邮件发送</title>
+</head>
+<body>
+  <h1>自动邮件发送工具</h1>
+  <section>
+    <h2>添加邮箱到分类</h2>
+    <p>先为收件人划分分类，例如：准客户类、精准客户类、目标客户群。</p>
+    <form method="POST" action="/api/add-email">
+      <label>分类名称：
+        <input name="category" placeholder="例如：准客户类" required>
+      </label><br>
+      <label>邮箱地址：
+        <input type="email" name="email" placeholder="example@example.com" required>
+      </label><br>
+      <button type="submit">添加邮箱</button>
+    </form>
+  </section>
+  <section>
+    <h2>上传内容并定时发送</h2>
+    <p>将文本或文件加入待发送队列，到达设定时间后自动发送给指定分类的收件人。</p>
+    <form method="POST" action="/api/upload" enctype="multipart/form-data">
+      <label>目标邮箱分类：
+        <input name="emailCategory" placeholder="填写已存在的分类" required>
+      </label><br>
+      <label>内容分类：
+        <input name="contentCategory" placeholder="例如：广告文案A">
+      </label><br>
+      <label>文本内容：
+        <textarea name="text" placeholder="可直接输入邮件正文"></textarea>
+      </label><br>
+      <label>附件文件：
+        <input type="file" name="file">
+      </label><br>
+      <label>发送时间：
+        <input type="datetime-local" name="schedule" required>
+      </label><br>
+      <button type="submit">加入发送队列</button>
+    </form>
+  </section>
+</body>
+</html>
