@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Email Sender</title>
+</head>
+<body>
+  <h1>Email Sender</h1>
+  <section>
+    <h2>Add Email to Category</h2>
+    <form method="POST" action="/api/add-email">
+      <label>Category: <input name="category" required></label><br>
+      <label>Email: <input type="email" name="email" required></label><br>
+      <button type="submit">Add</button>
+    </form>
+  </section>
+  <section>
+    <h2>Upload Content for Sending</h2>
+    <form method="POST" action="/api/upload" enctype="multipart/form-data">
+      <label>Email Category: <input name="emailCategory" required></label><br>
+      <label>Content Category: <input name="contentCategory"></label><br>
+      <label>Text: <textarea name="text"></textarea></label><br>
+      <label>File: <input type="file" name="file"></label><br>
+      <label>Schedule (ISO string): <input name="schedule" placeholder="2024-01-01T10:00" required></label><br>
+      <button type="submit">Queue for Sending</button>
+    </form>
+  </section>
+</body>
+</html>
